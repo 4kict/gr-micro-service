@@ -1,20 +1,18 @@
 package gr.com.micro.servise.controller;
 
-//import gr.com.micro.service.api.GrMicroServiceClient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import gr.com.micro.servise.feignClients.GreetingCloud;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 @RestController
-public class GrController {
-        //implements GrMicroServiceClient {
+public class GrController implements GreetingCloud {
 
-    @RequestMapping(path = "/getGr")
-    public String getGr(){
-        return "Some Data from Micro service";
-    }
+    private Random random = new Random();
 
-//    @Override
-    public String getInfo() {
-        return "My Name is MICRO-SERVICE";
+    @Override
+    public String greeting() {
+        return "Hello From Cloud MicroService rnd=" + random.nextFloat();
     }
 }
+
