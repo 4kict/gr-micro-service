@@ -1,11 +1,11 @@
-spring:
-  application:
-    name: gr-micro-service
 server:
   port: 0
+security:
+  basic:
+    enabled: true
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8762/eureka}
+      defaultZone: http://host:8761/eureka
   instance:
     preferIpAddress: true
